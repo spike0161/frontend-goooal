@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
+import Login from './components/Login'
 
 class App extends React.Component {
   constructor() {
@@ -41,6 +42,14 @@ componentDidMount(){
               return <TeamShow team={teamObj} />;
             }}
           />
+        <Route
+          exact
+          path='/login'
+          render={props => {
+            return <Login />
+          }}
+          />
+
         </Router>
       </div>
     );
