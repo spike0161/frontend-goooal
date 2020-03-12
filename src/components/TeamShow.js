@@ -3,6 +3,7 @@ import React from 'react'
 
 
 const TeamShow = (props) => {
+
   return(
     <div>
     { props.team ?
@@ -22,6 +23,21 @@ const TeamShow = (props) => {
     </div> :
     null
   }
+
+  <div>
+    <h3>Squad:</h3>
+    {props.players.map(p => (
+      <div>
+        <h5>Player:{p.name}</h5>
+        <p>Position:{p.position}</p>
+        <p>Nationality:{p.nationality}</p>
+        <p>Role:{p.role}</p>
+      </div>
+
+
+    ))}
+  </div>
+
     </div>
   )
 }
