@@ -10,7 +10,7 @@ const NavBar = (props) => {
   </button>
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav">
-      <a className="nav-item nav-link active" href="#">League Table </a>
+      <a className="nav-item nav-link active" href="/leaguetable">League Table </a>
       <a className="nav-item nav-link" href="#">Teams</a>
       <a className="nav-item nav-link" href="#">Current News</a>
       <a className="nav-item nav-link" href="https://www.worldsoccershop.com/shop/leagues/premier-league">Shop Apparel</a>

@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
 import Login from './components/Login'
 import UserProfile from './components/UserProfile'
+import LeagueTable from './components/LeagueTable'
 
 class App extends React.Component {
   constructor() {
@@ -29,6 +30,17 @@ componentDidMount(){
   })
 }
 
+handleFavoriteTeam = (team) => {
+  fetch('http://localhost:3000/favorite_teams',{
+    method: "POST",
+    headers: {
+      'Content-Type': "application/json",
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({user_id: this.state.currentUser, team_id: team.id})
+  })
+}
+
 
   render() {
     console.log("In App", this.state.allTeams)
@@ -48,7 +60,7 @@ componentDidMount(){
             render={props => {
               let id = parseInt(props.match.params.id);
               let teamObj = this.state.allTeams.find(team => team.id === id);
-              return <TeamShow team={teamObj} players={this.state.players}/>;
+              return <TeamShow team={teamObj} players={this.state.players} handleFavoriteTeam={this.handleFavoriteTeam}/>;
             }}
           />
         <Route
@@ -63,6 +75,12 @@ componentDidMount(){
           path='/users/:id' render={(props) =>
         <UserProfile currentUser={this.state.currentUser.id}/>
       }/>
+
+    <Route
+      exact
+      path='/leaguetable' render={(props) =>
+      <LeagueTable />
+    }/>
 
         </Router>
       </div>

@@ -15,7 +15,7 @@ class TeamShow extends React.Component {
       <h1>{this.props.team.full_name}</h1>
       <h3>{this.props.team.short_name}</h3>
       <h3>{this.props.team.tla}</h3>
-
+      <button onClick = {()=>this.props.handleFavoriteTeam(this.props.team)}>Favorite</button>
 
       <p>{this.props.team.address}</p>
       <p>{this.props.team.phone}</p>
