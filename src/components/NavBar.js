@@ -14,7 +14,7 @@ const NavBar = (props) => {
       <a className="nav-item nav-link" href="#">Teams</a>
       <a className="nav-item nav-link" href="#">Current News</a>
       <a className="nav-item nav-link" href="https://www.worldsoccershop.com/shop/leagues/premier-league">Shop Apparel</a>
-      <a className="nav-item nav-link" href="#">Your Profile</a>
+      <a className="nav-item nav-link" href="/users/2">Your Profile</a>
       <a className="nav-item nav-link" href="#">About Creator</a>
       <a className="nav-item nav-link" href="/login">Login</a>
       <a className="nav-item nav-link" href="/signUp">Sign up</a>

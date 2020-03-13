@@ -5,21 +5,23 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
 import Login from './components/Login'
+import UserProfile from './components/UserProfile'
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       allTeams: [],
-      players: [],
-      news: []
+      news: [],
+      currentUser: {id: 2},
+      players: []
     };
   }
 
 
 componentDidMount(){
   Promise.all([fetch('http://localhost:3000/teams'), fetch("https://gnews.io/api/v3/search?q='EPL'&max=3&image&token=a2965dcd94c290f2ba5097d111ca2089"), fetch('http://localhost:3000/players')])
-  .then(([res1, res2, res3]) =>{
+  .then(([res1, res2, res3 ]) =>{
     return Promise.all([res1.json(), res2.json(), res3.json()])
   })
   .then(([res1, res2, res3]) => {
@@ -28,9 +30,8 @@ componentDidMount(){
 }
 
 
-
-
   render() {
+    console.log("In App", this.state.allTeams)
     return (
       <div className="App">
 
@@ -57,6 +58,11 @@ componentDidMount(){
             return <Login />
           }}
           />
+        <Route
+          exact
+          path='/users/:id' render={(props) =>
+        <UserProfile currentUser={this.state.currentUser.id}/>
+      }/>
 
         </Router>
       </div>

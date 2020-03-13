@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {
   render() {
-    console.log("Homepage:",this.props.allTeams, this.props.news.articles)
+
     return (
 
       <div>
 
+// insert news articles here
 
-    
+
 
         {this.props.allTeams.map(team => (
           <Link to={`/teams/${team.id}`}>
