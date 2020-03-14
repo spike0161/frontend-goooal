@@ -4,15 +4,10 @@ import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {
   render() {
-
+// console.log("HomePage props:", this.props.news)
     return (
 
       <div>
-
-// insert news articles here
-
-
-
         {this.props.allTeams.map(team => (
           <Link to={`/teams/${team.id}`}>
             {" "}
@@ -24,6 +19,14 @@ class HomePage extends React.Component {
               src={team.crestUrl}
             />{" "}
           </Link>
+        ))}
+
+        {this.props.news.map(article => (
+          <div>
+            <h5>{article.title}</h5>
+            <img src={article.image} alt={article.url} style={{width: 50, height: 50}}/>
+            <p>{article.description}</p>
+          </div>
         ))}
 
         <table>

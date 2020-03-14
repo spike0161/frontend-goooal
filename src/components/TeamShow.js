@@ -6,7 +6,6 @@ class TeamShow extends React.Component {
 
   render(){
 
-    console.log("TeamShow", this.props)
     return(
       <div>
       { this.props.team ?
