@@ -63,7 +63,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("In App", this.state.news)
+    // console.log("In App", this.state.news)
     return (
       <div className="App">
         <Router>
