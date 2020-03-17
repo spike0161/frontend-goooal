@@ -1,9 +1,9 @@
 import React from "react";
 
 const TeamCard = props => {
-  console.log("TeamCard props:" ,props);
   return (
     <div>
+      
       <img
         src={props.team.crestUrl}
         alt={props.team.shortName}

@@ -7,6 +7,7 @@ import TeamShow from "./components/TeamShow";
 import Login from "./components/Login";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
+import AllTeams from './components/AllTeams'
 
 class App extends React.Component {
   constructor() {
@@ -45,7 +46,6 @@ class App extends React.Component {
         });
       });
   }
-  // add fetch to grab user/2 on initial fetch
   // environment variables
 
   handleFavoriteTeam = team => {
@@ -99,6 +99,13 @@ class App extends React.Component {
                   handleFavoriteTeam={this.handleFavoriteTeam}
                 />
               );
+            }}
+          />
+          <Route
+            exact
+            path="/allTeams"
+            render={props => {
+              return <AllTeams teams={this.state.allTeams}/>;
             }}
           />
           <Route
