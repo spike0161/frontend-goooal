@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
 import Login from "./components/Login";
-import UserProfile from "./components/UserProfile";
+import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 
 class App extends React.Component {
@@ -26,7 +26,7 @@ class App extends React.Component {
         "https://gnews.io/api/v3/search?q='EPL'&max=3&image&token=a2965dcd94c290f2ba5097d111ca2089"
       ),
       fetch("http://localhost:3000/players"),
-      fetch("http://localhost:3000/users/2")
+      fetch("http://localhost:3000/users/5")
     ])
       .then(([res1, res2, res3, res4]) => {
         return Promise.all([
@@ -61,6 +61,17 @@ class App extends React.Component {
       })
     });
   };
+
+
+    removeFavoriteTeam = (id) => {
+      fetch(`http://localhost:3000/favorite_teams/5/${id}`, {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+      })
+    }
 
   render() {
     // console.log("In App", this.state.news)
@@ -100,7 +111,7 @@ class App extends React.Component {
           <Route
             exact
             path="/users/:id"
-            render={props => <UserProfile user={this.state.currentUser} />}
+            render={props => <UserProfile user={this.state.currentUser} removeFavoriteTeam={this.removeFavoriteTeam}/>}
           />
 
           <Route exact path="/leaguetable" render={props => <LeagueTable />} />
