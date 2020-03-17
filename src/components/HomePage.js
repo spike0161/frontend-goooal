@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {
   render() {
-      console.log("HomePage props:", this.props)
+      // console.log("HomePage props:", this.props)
     return (
 
       <div>
