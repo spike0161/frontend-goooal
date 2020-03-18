@@ -63,15 +63,7 @@ class App extends React.Component {
   };
 
 
-    removeFavoriteTeam = (id) => {
-      fetch(`http://localhost:3000/favorite_teams/5/${id}`, {
-        method: 'DELETE',
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-      })
-    }
+
 
   render() {
     // console.log("In App", this.state.news)
@@ -118,7 +110,7 @@ class App extends React.Component {
           <Route
             exact
             path="/users/:id"
-            render={props => <UserProfile user={this.state.currentUser} removeFavoriteTeam={this.removeFavoriteTeam}/>}
+            render={props => <UserProfile user={this.state.currentUser} />}
           />
 
           <Route exact path="/leaguetable" render={props => <LeagueTable />} />

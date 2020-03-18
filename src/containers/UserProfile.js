@@ -8,6 +8,8 @@ class UserProfile extends React.Component {
       usersArr: [],
       favTeams: []
     };
+
+    // this.removeTeam = this.removeTeam.bind(this)
   }
 
 
@@ -18,9 +20,30 @@ class UserProfile extends React.Component {
       .then(data => this.setState({ usersArr: data, favTeams: data.teams }));
   }
 
+  removeFavoriteTeam = (id) => {
+    fetch(`http://localhost:3000/favorite_teams/5/${id}`, {
+      method: 'DELETE',
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+      },
+    })
+  }
+
+// not persisting deleted favorite team- think something to do with the state being delete but still in users array
+removeTeam = (id) => {
+  this.setState(prevState => ({
+    favTeams: prevState.favTeams.filter(team => team.id != id)
+  }))
+  // console.log("Remove team", this.state.favTeams, this.state.usersArr)
+alert("Team has been removed from your favorites")
+}
+
+
+
 
   render() {
-    let favTeams = this.state.usersArr.teams;
+    let favTeams = this.state.favTeams;
     return (
       <div>
         <h2>Welcome {this.props.user.username}</h2>
@@ -30,7 +53,8 @@ class UserProfile extends React.Component {
 
           {favTeams
             ? favTeams.map(teamObj => (
-                <TeamCard team={teamObj} key={teamObj.id} removeFavoriteTeam={this.props.removeFavoriteTeam} />
+                <TeamCard team={teamObj} key={teamObj.id} removeTeam={this.removeTeam} favTeams={this.state.favTeams}
+                  />
               ))
             : null}
         </div>

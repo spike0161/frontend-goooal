@@ -2,12 +2,12 @@ import React from "react";
 // import { Link } from 'react-router-dom'
 
 class TeamShow extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      upComing: []
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     upComing: []
+  //   };
+  // }
 
   // componentDidMount() {
   //   fetch(
@@ -25,6 +25,7 @@ class TeamShow extends React.Component {
   render() {
     console.log("TeamShow", this.props.team);
     return (
+      <div>
       <div>
         {this.props.team ? (
           <div>
@@ -53,22 +54,31 @@ class TeamShow extends React.Component {
         ) : null}
       </div>
 
-      // {this.state.upComing.map( game => (
-      //   <div>
-      //     {game}
-      //   </div>
-      // ))}
 
-      // {this.props.players.map( player => (
-      //   <div>
-      //     <h4>Name: {player.name}</h4>
-      //     <p>Position: {player.position}</p>
-      //     <p>Nationality: {player.nationality}</p>
-      //     <p>Shirt Number: {player.shirt_number}</p>
-      //     <p>DOB: {player.date_of_birth}</p>
-      //   </div>
-      // ))}
-    );
+
+
+
+        <div>
+
+          <table className='roster'>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Nationality</th>
+              <th>Shirt Number</th>
+            </tr>
+            {this.props.players.map( player => (
+            <tr>
+              <td>{player.name}</td>
+              <td>{player.position}</td>
+              <td>{player.nationality}</td>
+              <td>{player.shirt_number}</td>
+            </tr>
+          ))}
+          </table>
+        </div>
+    </div>
+    )
   }
 }
 
