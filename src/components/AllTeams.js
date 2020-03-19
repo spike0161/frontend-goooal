@@ -2,24 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class AllTeams extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      searchText: ""
-    }
-  }
 
-searchTextHandler = (e) => {
-  e.preventDefault()
-  this.setState({ searchText: e.target.value})
-}
 
-getFilteredTeams = () => {
-  let filteredTeams = this.props.allTeams.filter( team => team.full_name.includes(this.state.searchText))
-}
 
   render() {
-    console.log(this.props);
+    console.log(this.props.teams);
     return (
       <div>
         <h2>All Teams</h2>
@@ -28,7 +15,7 @@ getFilteredTeams = () => {
             className="search-teams"
             type="text"
             placeholder="Search Teams"
-            onChange ={ e => this.searchTextHandler(e)}
+            onChange ={ e => this.props.search(e)}
           />
 
         </div>

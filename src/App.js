@@ -16,7 +16,8 @@ class App extends React.Component {
       allTeams: [],
       news: [],
       currentUser: [],
-      players: []
+      players: [],
+      searchText: ""
     };
   }
 
@@ -65,6 +66,21 @@ class App extends React.Component {
 
 
 
+searchTextHandler = (e) => {
+e.preventDefault()
+this.setState({ searchText: e.target.value})
+}
+
+getFilteredTeams = () => {
+
+let filteredTeams = this.state.allTeams.filter( team => team.full_name.toLowerCase().includes(this.state.searchText)
+)
+return filteredTeams
+}
+
+
+
+
   render() {
     // console.log("In App", this.state.news)
     return (
@@ -96,9 +112,12 @@ class App extends React.Component {
           <Route
             exact
             path="/allTeams"
-            render={props => {
-              return <AllTeams teams={this.state.allTeams}/>;
-            }}
+            render={props => (
+               <AllTeams
+                 search={this.searchTextHandler}
+                 teams={this.getFilteredTeams()}
+                />
+            )}
           />
           <Route
             exact
