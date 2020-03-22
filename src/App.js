@@ -7,7 +7,7 @@ import TeamShow from "./components/TeamShow";
 import Login from "./components/Login";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
-import AllTeams from './components/AllTeams'
+import AllTeams from "./components/AllTeams";
 
 class App extends React.Component {
   constructor() {
@@ -63,23 +63,17 @@ class App extends React.Component {
     });
   };
 
+  searchTextHandler = e => {
+    e.preventDefault();
+    this.setState({ searchText: e.target.value });
+  };
 
-
-
-searchTextHandler = (e) => {
-e.preventDefault()
-this.setState({ searchText: e.target.value})
-}
-
-getFilteredTeams = () => {
-
-let filteredTeams = this.state.allTeams.filter( team => team.full_name.toLowerCase().includes(this.state.searchText)
-)
-return filteredTeams
-}
-
-
-
+  getFilteredTeams = () => {
+    let filteredTeams = this.state.allTeams.filter(team =>
+      team.full_name.toLowerCase().includes(this.state.searchText)
+    );
+    return filteredTeams;
+  };
 
   render() {
     // console.log("In App", this.state.news)
@@ -113,10 +107,10 @@ return filteredTeams
             exact
             path="/allTeams"
             render={props => (
-               <AllTeams
-                 search={this.searchTextHandler}
-                 teams={this.getFilteredTeams()}
-                />
+              <AllTeams
+                search={this.searchTextHandler}
+                teams={this.getFilteredTeams()}
+              />
             )}
           />
           <Route

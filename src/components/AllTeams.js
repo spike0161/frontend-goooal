@@ -2,11 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class AllTeams extends React.Component {
-
-
-
   render() {
-    console.log(this.props.teams);
+    // console.log(this.props.teams);
     return (
       <div>
         <h2>All Teams</h2>
@@ -15,9 +12,8 @@ class AllTeams extends React.Component {
             className="search-teams"
             type="text"
             placeholder="Search Teams"
-            onChange ={ e => this.props.search(e)}
+            onChange={e => this.props.search(e)}
           />
-
         </div>
         {this.props.teams.map(team => (
           <Link to={`/teams/${team.id}`}>
@@ -29,10 +25,9 @@ class AllTeams extends React.Component {
                 alt={team.shortName}
                 src={team.crestUrl}
               />
-            <h3>{team.full_name}</h3>
+              <h3>{team.full_name}</h3>
             </div>
           </Link>
-
         ))}
       </div>
     );
@@ -40,15 +35,3 @@ class AllTeams extends React.Component {
 }
 
 export default AllTeams;
-
-// {props.teams.map(team => (
-//   <Link to={`/teams/${team.id}`}>
-//     <img
-//       className="rest-card-img"
-//       key={team.id}
-//       style={{ width: 50, height: 50 }}
-//       alt={team.shortName}
-//       src={team.crestUrl}
-//     />
-//   </Link>
-//  )}

@@ -1,5 +1,6 @@
 import React from "react";
 import TeamShow from "./TeamShow";
+import LeagueTable from './LeagueTable'
 import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {
@@ -27,7 +28,7 @@ class HomePage extends React.Component {
             <p>{article.description}</p>
           </div>
         ))}
-
+        <LeagueTable />
       </div>
     );
   }

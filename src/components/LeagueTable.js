@@ -1,42 +1,31 @@
-import React from 'react'
-
+import React from "react";
 
 class LeagueTable extends React.Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
       league: []
-    }
+    };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch("http://api.football-data.org/v2/competitions/2021/standings", {
       headers: {
-        "X-Auth-Token": "d6fd802b82a34762a26dfeb22947f330",
+        "X-Auth-Token": "d6fd802b82a34762a26dfeb22947f330"
       }
     })
-    .then(res => res.json())
-    .then(data => this.setState({league: data.standings[0].table}))
+      .then(res => res.json())
+      .then(data => this.setState({ league: data.standings[0].table }));
   }
 
-
-
-  // "won": 27,
-  //      "draw": 1,    team.draw
-  //      "lost": 1,
-  //      "points": 82,
-  //      "goalsFor": 66,
-  //      "goalsAgainst": 21,
-  //      "goalDifference": 45
-
-  render(){
-    return(
-
-
+  render() {
+    // console.log(this.state.league);
+    return (
       <div>
+        <table className="tg">
+          <thead> Premier League Table</thead>
+          <tbody>
 
-
-          <table className="tg">
             <tr>
               <th className="tg-cly1">Position</th>
               <th className="tg-0lax">Team</th>
@@ -50,26 +39,24 @@ class LeagueTable extends React.Component {
               <th className="tg-0lax">Diff</th>
             </tr>
             {this.state.league.map(team => (
-            <tr>
-              <td className="tg-0lax">{team.position}</td>
-              <td className="tg-0lax">{team.team.name}</td>
-              <td className="tg-0lax">{team.playedGames}</td>
-              <td className="tg-0lax">{team.won}</td>
-              <td className="tg-0lax">{team.draw}</td>
-              <td className="tg-0lax">{team.lost}</td>
-              <td className="tg-0lax">{team.points}</td>
-              <td className="tg-0lax">{team.goalsFor}</td>
-              <td className="tg-0lax">{team.goalsAgainst}</td>
-              <td className="tg-0lax">{team.goalDifference}</td>
-            </tr>
-  ))}
-          </table>
-
+              <tr>
+                <td className="tg-0lax">{team.position}</td>
+                <td className="tg-0lax">{team.team.name}</td>
+                <td className="tg-0lax">{team.playedGames}</td>
+                <td className="tg-0lax">{team.won}</td>
+                <td className="tg-0lax">{team.draw}</td>
+                <td className="tg-0lax">{team.lost}</td>
+                <td className="tg-0lax">{team.points}</td>
+                <td className="tg-0lax">{team.goalsFor}</td>
+                <td className="tg-0lax">{team.goalsAgainst}</td>
+                <td className="tg-0lax">{team.goalDifference}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-
-    )
+    );
   }
-
 }
 
-export default LeagueTable
+export default LeagueTable;
