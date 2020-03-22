@@ -1,25 +1,10 @@
 import React from "react";
 
 class LeagueTable extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      league: []
-    };
-  }
 
-  componentDidMount() {
-    fetch("http://api.football-data.org/v2/competitions/2021/standings", {
-      headers: {
-        "X-Auth-Token": "d6fd802b82a34762a26dfeb22947f330"
-      }
-    })
-      .then(res => res.json())
-      .then(data => this.setState({ league: data.standings[0].table }));
-  }
 
   render() {
-    // console.log(this.state.league);
+    console.log(this.props.leagueTable);
     return (
       <div>
         <table className="tg">
@@ -38,7 +23,7 @@ class LeagueTable extends React.Component {
               <th className="tg-0lax">Against</th>
               <th className="tg-0lax">Diff</th>
             </tr>
-            {this.state.league.map(team => (
+            { this.props.leagueTable.map(team => (
               <tr>
                 <td className="tg-0lax">{team.position}</td>
                 <td className="tg-0lax">{team.team.name}</td>

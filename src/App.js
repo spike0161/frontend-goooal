@@ -17,7 +17,8 @@ class App extends React.Component {
       news: [],
       currentUser: [],
       players: [],
-      searchText: ""
+      searchText: "",
+      leagueTable: []
     };
   }
 
@@ -28,26 +29,39 @@ class App extends React.Component {
         "https://gnews.io/api/v3/search?q='EPL'&max=3&image&token=a2965dcd94c290f2ba5097d111ca2089"
       ),
       fetch("http://localhost:3000/players"),
-      fetch("http://localhost:3000/users/5")
+      fetch("http://localhost:3000/users/5"), fetch("http://api.football-data.org/v2/competitions/2021/standings", {
+        headers: {
+          "X-Auth-Token": "d6fd802b82a34762a26dfeb22947f330"
+        }
+      })
     ])
-      .then(([res1, res2, res3, res4]) => {
+      .then(([res1, res2, res3, res4, res5]) => {
         return Promise.all([
           res1.json(),
           res2.json(),
           res3.json(),
-          res4.json()
+          res4.json(),
+          res5.json()
         ]);
       })
-      .then(([res1, res2, res3, res4]) => {
+      .then(([res1, res2, res3, res4, res5]) => {
         this.setState({
           allTeams: res1,
           news: res2.articles,
           players: res3,
-          currentUser: res4
+          currentUser: res4,
+          leagueTable: res5.standings[0].table,
+          top5Table: []
         });
       });
   }
   // environment variables
+
+  top5Table = () => {
+    let teams = this.state.leagueTable.filter(team => team.position <= 5)
+      return teams
+  }
+
 
   handleFavoriteTeam = team => {
     fetch("http://localhost:3000/favorite_teams", {
@@ -76,7 +90,8 @@ class App extends React.Component {
   };
 
   render() {
-    // console.log("In App", this.state.news)
+
+    console.log("In App", this.state)
     return (
       <div className="App">
         <Router>
@@ -126,7 +141,7 @@ class App extends React.Component {
             render={props => <UserProfile user={this.state.currentUser} />}
           />
 
-          <Route exact path="/leaguetable" render={props => <LeagueTable />} />
+        <Route exact path="/leaguetable" render={props => <LeagueTable leagueTable={this.state.leagueTable}/>} />
         </Router>
       </div>
     );

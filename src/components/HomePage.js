@@ -28,7 +28,7 @@ class HomePage extends React.Component {
             <p>{article.description}</p>
           </div>
         ))}
-        <LeagueTable />
+        
       </div>
     );
   }
