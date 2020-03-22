@@ -101,7 +101,7 @@ class App extends React.Component {
             exact
             path="/"
             render={props => (
-              <HomePage news={this.state.news} allTeams={this.state.allTeams} />
+              <HomePage news={this.state.news} allTeams={this.state.allTeams} top5Table={this.top5Table()} />
             )}
           />
           <Route
