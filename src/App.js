@@ -76,6 +76,7 @@ class App extends React.Component {
         team_id: team.id
       })
     });
+    alert("Team has been favorited")
   };
 
   searchTextHandler = e => {

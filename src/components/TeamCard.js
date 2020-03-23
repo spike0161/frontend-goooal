@@ -11,7 +11,7 @@ const TeamCard = props => {
       />
       <h2>{props.team.tla}</h2>
 
-    <button onClick={() => props.removeTeam(props.team.id)}> Remove </button>
+    <button onClick={() => props.removeFavoriteTeam(props.team.id)}> Remove </button>
 
     </div>
   );
