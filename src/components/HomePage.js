@@ -3,6 +3,18 @@ import TeamShow from "./TeamShow";
 import LeagueTable from "./LeagueTable";
 import { Link } from "react-router-dom";
 
+// {this.props.news.map(article => (
+//   <div>
+//     <h5>{article.title}</h5>
+//     <img
+//       src={article.image}
+//       alt={article.url}
+//       style={{ width: 50, height: 50 }}
+//     />
+//     <p>{article.description}</p>
+//   </div>
+// ))}
+
 class HomePage extends React.Component {
   render() {
     console.log("HomePage props:", this.props);
@@ -20,17 +32,7 @@ class HomePage extends React.Component {
           </Link>
         ))}
 
-        {this.props.news.map(article => (
-          <div>
-            <h5>{article.title}</h5>
-            <img
-              src={article.image}
-              alt={article.url}
-              style={{ width: 50, height: 50 }}
-            />
-            <p>{article.description}</p>
-          </div>
-        ))}
+
         <table>
           <thead>Top Five Teams</thead>
           <tbody>

@@ -29,7 +29,7 @@ class App extends React.Component {
         "https://gnews.io/api/v3/search?q='EPL'&max=3&image&token=a2965dcd94c290f2ba5097d111ca2089"
       ),
       fetch("http://localhost:3000/players"),
-      fetch("http://localhost:3000/users/5"), fetch("http://api.football-data.org/v2/competitions/2021/standings", {
+      fetch("http://localhost:3000/users/8"), fetch("http://api.football-data.org/v2/competitions/2021/standings", {
         headers: {
           "X-Auth-Token": "d6fd802b82a34762a26dfeb22947f330"
         }
@@ -64,6 +64,7 @@ class App extends React.Component {
 
 
   handleFavoriteTeam = team => {
+    // debugger
     fetch("http://localhost:3000/favorite_teams", {
       method: "POST",
       headers: {
@@ -71,7 +72,7 @@ class App extends React.Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        user_id: this.state.currentUser.id,
+        user_id: this.state.currentUser.user.id,
         team_id: team.id
       })
     });
@@ -90,7 +91,6 @@ class App extends React.Component {
   };
 
   render() {
-
     console.log("In App", this.state)
     return (
       <div className="App">
