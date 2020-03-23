@@ -1,13 +1,27 @@
 import React from "react";
 import "./App.css";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
+import SignUp from "./containers/signup";
 import Login from "./containers/login";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 import AllTeams from "./components/AllTeams";
+
+// <Route
+//   exact
+//   path="/users/:id"
+//   render={props => {
+//     <UserProfile user={this.state.currentUser} />
+//   }}
+// />
 
 class App extends React.Component {
   constructor() {
@@ -15,7 +29,7 @@ class App extends React.Component {
     this.state = {
       allTeams: [],
       news: [],
-      currentUser: [],
+      currentUser: null,
       players: [],
       searchText: "",
       leagueTable: []
@@ -29,7 +43,8 @@ class App extends React.Component {
         "https://gnews.io/api/v3/search?q='EPL'&max=3&image&token=a2965dcd94c290f2ba5097d111ca2089"
       ),
       fetch("http://localhost:3000/players"),
-      fetch("http://localhost:3000/users/8"), fetch("http://api.football-data.org/v2/competitions/2021/standings", {
+      fetch("http://localhost:3000/users"),
+      fetch("http://api.football-data.org/v2/competitions/2021/standings", {
         headers: {
           "X-Auth-Token": "d6fd802b82a34762a26dfeb22947f330"
         }
@@ -57,11 +72,34 @@ class App extends React.Component {
   }
   // environment variables
 
-  top5Table = () => {
-    let teams = this.state.leagueTable.filter(team => team.position <= 5)
-      return teams
-  }
+  // loginHandler = e => {
+  //   e.preventDefault();
+  //   fetch("http://localhost:3000/fakelogin", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       username: event.target.firstElementChild.value
+  //     })
+  //   })
+  //     .then(res => res.json())
+  //     .then(data =>
+  //       this.setState({
+  //         currentUser: data
+  //       })
+  //     );
+  // };
 
+  logoutHandler = () => {
+    this.setState = { currentUser: null }(<Redirect to="/" />);
+  };
+
+  top5Table = () => {
+    let teams = this.state.leagueTable.filter(team => team.position <= 5);
+    return teams;
+  };
 
   handleFavoriteTeam = team => {
     // debugger
@@ -76,7 +114,7 @@ class App extends React.Component {
         team_id: team.id
       })
     });
-    alert("Team has been favorited")
+    alert("Team has been favorited");
   };
 
   searchTextHandler = e => {
@@ -92,57 +130,74 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("In App", this.state)
+    console.log("In App", this.state);
     return (
-      <div className="App">
+      <div>
         <Router>
-          <NavBar />
+          <SignUp />
+          <div className="App">
+            <Route
+              exact
+              path="/"
+              render={props => {
+                return (
+                  <HomePage
+                    news={this.state.news}
+                    allTeams={this.state.allTeams}
+                    top5Table={this.top5Table()}
+                  />
+                );
+              }}
+            />
 
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <HomePage news={this.state.news} allTeams={this.state.allTeams} top5Table={this.top5Table()} />
-            )}
-          />
-          <Route
-            path="/teams/:id"
-            render={props => {
-              let id = parseInt(props.match.params.id);
-              let teamObj = this.state.allTeams.find(team => team.id === id);
-              return (
-                <TeamShow
-                  team={teamObj}
-                  players={this.state.players}
-                  handleFavoriteTeam={this.handleFavoriteTeam}
-                />
-              );
-            }}
-          />
-          <Route
-            exact
-            path="/allTeams"
-            render={props => (
-              <AllTeams
-                search={this.searchTextHandler}
-                teams={this.getFilteredTeams()}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/login"
-            render={props => {
-              return <Login />;
-            }}
-          />
-          <Route
-            exact
-            path="/users/:id"
-            render={props => <UserProfile user={this.state.currentUser} />}
-          />
+            <Route exact path="/login">
+              return (<Login loginHandler={this.loginHandler} />)
+            </Route>
 
-        <Route exact path="/leaguetable" render={props => <LeagueTable leagueTable={this.state.leagueTable}/>} />
+            <Route
+              path="/teams/:id"
+              render={props => {
+                let id = parseInt(props.match.params.id);
+                let teamObj = this.state.allTeams.find(team => team.id === id);
+                return (
+                  <TeamShow
+                    team={teamObj}
+                    players={this.state.players}
+                    handleFavoriteTeam={this.handleFavoriteTeam}
+                  />
+                );
+              }}
+            />
+
+            <Route
+              exact
+              path="/allTeams"
+              render={props => {
+                return (
+                  <AllTeams
+                    search={this.searchTextHandler}
+                    teams={this.getFilteredTeams()}
+                  />
+                );
+              }}
+            />
+
+            <Route
+              exact
+              path="/login"
+              render={props => {
+                return <Login />;
+              }}
+            />
+
+            <Route
+              exact
+              path="/leaguetable"
+              render={props => {
+                return <LeagueTable leagueTable={this.state.leagueTable} />;
+              }}
+            />
+          </div>
         </Router>
       </div>
     );
