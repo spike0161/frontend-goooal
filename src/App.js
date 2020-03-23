@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
-import Login from "./components/Login";
+import Login from "./containers/login";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 import AllTeams from "./components/AllTeams";
