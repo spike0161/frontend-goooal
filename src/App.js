@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
 import SignUp from "./containers/signup";
-import Login from "./containers/login";
+// import Login from "./containers/login";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 import AllTeams from "./components/AllTeams";
@@ -103,11 +103,11 @@ class App extends React.Component {
       );
   };
 
-  logoutHandler = () => {
-    this.setState = {
-      currentUser: null
-    }(<Redirect to="/signup" />);
-  };
+  // logoutHandler = () => {
+  //   this.setState = {
+  //     currentUser: null
+  //   }(<Redirect to="/signup" />);
+  // };
 
   top5Table = () => {
     let teams = this.state.leagueTable.filter(team => team.position <= 5);
@@ -122,7 +122,7 @@ class App extends React.Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        user_id: this.state.currentUser.user.id,
+        user_id: this.state.currentUser.id,
         team_id: team.id
       })
     });
@@ -146,7 +146,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar logoutHandler={this.logoutHandler} />
+          <NavBar />
           <SignUp signUpHandler={this.signUpHandler}/>
 
           <div className="App">
@@ -169,14 +169,11 @@ class App extends React.Component {
                 <Redirect to="/signup" />
             }
 
-              <Route exact path="/login">
-                return (
-                  <Login loginHandler={this.loginHandler} />)
-              </Route>
+
 
               <Route
                 exact
-                path="/profile/:id"
+                path="/users/8"
                 render={props => {
                   return <UserProfile user={this.state.currentUser} />;
                 }}
