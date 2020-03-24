@@ -64,7 +64,7 @@ class App extends React.Component {
 
 
   handleFavoriteTeam = team => {
-    // debugger
+  
     fetch("http://localhost:3000/favorite_teams", {
       method: "POST",
       headers: {
