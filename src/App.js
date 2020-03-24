@@ -21,7 +21,7 @@ class App extends React.Component {
     this.state = {
       allTeams: [],
       news: [],
-      currentUser: null,
+      currentUser: {id: 8},
       players: [],
       searchText: "",
       leagueTable: []
@@ -59,6 +59,29 @@ class App extends React.Component {
       });
   }
   // environment variables
+
+  signUpHandler = (e, formInfo) => {
+    e.preventDefault();
+    let name = formInfo.name;
+    let userName = formInfo.userName;
+
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        username: userName
+      })
+    }
+
+    fetch("http://localhost:3000/users", configObj)
+    .then(res => res.json())
+    .then(user => this.setState({currentUser: user}))
+  };
+
 
   loginHandler = e => {
     e.preventDefault();
@@ -124,7 +147,7 @@ class App extends React.Component {
       <div>
         <Router>
           <NavBar logoutHandler={this.logoutHandler} />
-          <SignUp />
+          <SignUp signUpHandler={this.signUpHandler}/>
 
           <div className="App">
             <Switch>
@@ -146,9 +169,9 @@ class App extends React.Component {
                 <Redirect to="/signup" />
             }
 
-
               <Route exact path="/login">
-                return (<Login loginHandler={this.loginHandler} />)
+                return (
+                  <Login loginHandler={this.loginHandler} />)
               </Route>
 
               <Route
