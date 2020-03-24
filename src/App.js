@@ -176,14 +176,14 @@ class App extends React.Component {
 
               <Route
                 exact
-                path="/profile"
+                path="/profile/:id"
                 render={props => {
                   return <UserProfile user={this.state.currentUser} />;
                 }}
               />
 
               <Route
-                path="/profile"
+                path="/teams/:id"
                 render={props => {
                   let id = parseInt(props.match.params.id);
                   let teamObj = this.state.allTeams.find(
