@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
 import SignUp from "./containers/signup";
-// import Login from "./containers/login";
+import Login from "./containers/login";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 import AllTeams from "./components/AllTeams";
@@ -168,6 +168,14 @@ class App extends React.Component {
                 /> :
                 <Redirect to="/signup" />
             }
+
+            <Route
+              exact
+              path="/login"
+              render={props => {
+                return <Login  />;
+              }}
+            />
 
 
 
