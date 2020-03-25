@@ -21,9 +21,13 @@ class TeamShow extends React.Component {
   //     .then(res => res.json())
   //     .then(data => this.setState({ upComing: data.matches }));
   // }
+  getPlayers = () => {
+    let players = this.props.players.filter(player => player.team_id == this.props.team.id)
+    return players;
+  };
 
   render() {
-    console.log("TeamShow", this.props.team);
+    console.log("TeamShow", this.getPlayers());
     return (
       <div>
       <div>
@@ -67,7 +71,7 @@ class TeamShow extends React.Component {
               <th>Nationality</th>
               <th>Shirt Number</th>
             </tr>
-            {this.props.players.map( player => (
+            {this.getPlayers().map(player => (
             <tr>
               <td>{player.name}</td>
               <td>{player.position}</td>
