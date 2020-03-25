@@ -2,12 +2,12 @@ import React from "react";
 // import { Link } from 'react-router-dom'
 
 class TeamShow extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     upComing: []
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      playerPosition: ""
+    };
+  }
 
   // componentDidMount() {
   //   fetch(
@@ -21,6 +21,20 @@ class TeamShow extends React.Component {
   //     .then(res => res.json())
   //     .then(data => this.setState({ upComing: data.matches }));
   // }
+
+  playerPositionHandler = e => {
+    e.preventDefault();
+    this.setState({ playerPosition: e.target.value });
+  };
+
+  getFilteredPositions = () => {
+    let filteredPositions = this.getPlayers().filter(player =>
+      player.position && player.position.includes(this.state.playerPosition)
+    )
+    return filteredPositions
+  };
+  // && above code - when it renders 1st time, it needs to be updated with the state. Wont pass && until truthy.
+
   getPlayers = () => {
     let players = this.props.players.filter(
       player => player.team_id == this.props.team.id
@@ -61,7 +75,11 @@ class TeamShow extends React.Component {
         </div>
 
         <div>
-          <select className="ui search dropdown" onChange={e => console.log(e)}>
+          <select
+            className="ui search dropdown"
+            getFilteredPositions={this.getFilteredPositions()}
+            onChange={e => this.playerPositionHandler(e)}
+          >
             <option value="">All Players</option>
             <option value="Goalkeeper">Goalkeeper</option>
             <option value="Defender">Defender</option>
@@ -76,7 +94,7 @@ class TeamShow extends React.Component {
               <th>Nationality</th>
               <th>Shirt Number</th>
             </tr>
-            {this.getPlayers().map(player => (
+            {this.getFilteredPositions().map(player => (
               <tr>
                 <td>{player.name}</td>
                 <td>{player.position}</td>

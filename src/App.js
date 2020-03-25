@@ -103,6 +103,7 @@ class App extends React.Component {
       );
   };
 
+
   // logoutHandler = () => {
   //   this.setState = {
   //     currentUser: null
