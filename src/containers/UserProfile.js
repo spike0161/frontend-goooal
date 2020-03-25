@@ -11,7 +11,7 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/users/8")
+    fetch("http://localhost:3000/users/1")
       .then(res => res.json())
       .then(data =>
         this.setState({ usersArr: data, favTeams: data.favorites })
@@ -19,7 +19,7 @@ class UserProfile extends React.Component {
   }
 
   removeFavoriteTeam = id => {
-    fetch(`http://localhost:3000/favorite_teams/8/${id}`, {
+    fetch(`http://localhost:3000/favorite_teams/1/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

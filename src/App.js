@@ -21,7 +21,7 @@ class App extends React.Component {
     this.state = {
       allTeams: [],
       news: [],
-      currentUser: {id: 8},
+      currentUser: {id: 1},
       players: [],
       searchText: "",
       leagueTable: []
@@ -147,7 +147,6 @@ class App extends React.Component {
       <div>
         <Router>
           <NavBar />
-          <SignUp signUpHandler={this.signUpHandler}/>
 
           <div className="App">
             <Switch>
@@ -181,7 +180,7 @@ class App extends React.Component {
 
               <Route
                 exact
-                path="/users/8"
+                path="/users/1"
                 render={props => {
                   return <UserProfile user={this.state.currentUser} />;
                 }}
