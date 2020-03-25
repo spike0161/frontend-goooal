@@ -8,12 +8,10 @@ class UserProfile extends React.Component {
       usersArr: [],
       favTeams: []
     };
-
-    // this.removeTeam = this.removeTeam.bind(this)
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/users/8")
+    fetch("http://localhost:3000/users/1")
       .then(res => res.json())
       .then(data =>
         this.setState({ usersArr: data, favTeams: data.favorites })
@@ -21,25 +19,25 @@ class UserProfile extends React.Component {
   }
 
   removeFavoriteTeam = id => {
-    fetch(`http://localhost:3000/favorite_teams/8/${id}`, {
+    fetch(`http://localhost:3000/favorite_teams/1/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        "Accept": "application/json"
       }
     });
-  };
-
-  removeTeam = id => {
     this.setState(prevState => ({
       favTeams: prevState.favTeams.filter(team => team.id != id)
     }));
-    // console.log("Remove team", this.state.favTeams, this.state.usersArr)
     alert("Team has been removed from your favorites");
   };
 
+  // removeTeam = id => {
+  //
+  // };
+
   render() {
-    // console.log("UserProfile", this.props.user);
+    console.log("UserProfile", this.state);
     let favTeams = this.state.favTeams;
 
     return (
@@ -54,8 +52,8 @@ class UserProfile extends React.Component {
                 <TeamCard
                   team={teamObj}
                   key={teamObj.id}
-                  removeTeam={this.removeTeam}
                   favTeams={this.state.favTeams}
+                  removeFavoriteTeam={this.removeFavoriteTeam}
                 />
               ))
             : null}

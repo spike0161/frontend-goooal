@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
+// <a className="nav-item nav-link" href="#" onClick={ e => props.logoutHandler(e)}>Logout</a>
 const NavBar = (props) => {
   return(
     <div>
@@ -13,9 +15,8 @@ const NavBar = (props) => {
       <a className="nav-item nav-link active" href="/leaguetable">League Table </a>
       <a className="nav-item nav-link" href="/allTeams">Teams</a>
       <a className="nav-item nav-link" href="https://www.worldsoccershop.com/shop/leagues/premier-league">Shop Apparel</a>
-      <a className="nav-item nav-link" href="/users/2">Your Profile</a>
+      <a className="nav-item nav-link" href="/users/1">Your Profile</a>
       <a className="nav-item nav-link" href="#">About Creator</a>
-      <a className="nav-item nav-link" href="/login">Login</a>
       <a className="nav-item nav-link" href="/signUp">Sign up</a>
     </div>
   </div>
@@ -24,8 +25,5 @@ const NavBar = (props) => {
   )
 }
 
-// {<Link to = "/">
-//         <button className="item"><img src={Logo} style={{width: 80, height: 50}}></img></button>
-//       </Link>}
 
 export default NavBar
