@@ -158,6 +158,12 @@ font-weight: 700;
 flex-direction: row-reverse;
 }
 
+/* About page styling */
+
+.about-container {
+  text-align: center;
+}
+
 .fa-github {
   font-size: 30px;
   color: black;
