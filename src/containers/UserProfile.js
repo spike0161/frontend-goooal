@@ -52,12 +52,15 @@ class UserProfile extends React.Component {
           <img src="https://i.ya-webdesign.com/images/funny-png-avatar-2.png" alt="Profile Pic" id="avatar"></img>
           {favTeams
             ? favTeams.map(teamObj => (
+              <div id="fav-team-div">
                 <TeamCard
                   team={teamObj}
                   key={teamObj.id}
                   favTeams={this.state.favTeams}
                   removeFavoriteTeam={this.removeFavoriteTeam}
                 />
+              </div>
+
               ))
             : null}
         </div>

@@ -127,6 +127,13 @@ size:
 
 }
 
+#fav-team-div {
+  margin: 20px;
+  margin-left: 50%;
+  display: flex;
+
+}
+
 /* Navbar styling */
 
 .navbar-nav {
