@@ -2,6 +2,11 @@ body {
 
 
 }
+.card {
+width: 400px;
+float: right;
+}
+
 .news-div {
   width: 400px;
   height: 50px;

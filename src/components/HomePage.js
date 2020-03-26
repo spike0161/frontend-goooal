@@ -1,19 +1,18 @@
 import React from "react";
 import TeamShow from "./TeamShow";
 import LeagueTable from "./LeagueTable";
+import image from "../images/background.jpg";
 import { Link } from "react-router-dom";
-//
+
 // {this.props.news.map(article => (
-//   <div className="news-div">
-//     <h5 className="news-header">{article.title}</h5>
-//     <img
-//       src={article.image}
-//       alt={article.url}
-//       style={{ width: 300, height: 200 }}
-//     />
-//   <a href={article.url} alt="Url link">{article.url}</a>
-//     <p>{article.description}</p>
+// <div className="card" style="width: 18rem;">
+//   <img src={article.image} className="card-img-top" alt={article.url}>
+//   <div className="card-body">
+//     <h5 className="card-title">{article.title}</h5>
+//     <p className="card-text">{article.description}</p>
+//     <a href={article.url} className="btn btn-primary">Go somewhere</a>
 //   </div>
+// </div>
 // ))}
 
 
@@ -36,6 +35,35 @@ class HomePage extends React.Component {
             </Link>
           ))}
         </div>
+
+
+          <div class="card" >
+  <img src="..." class="card-img-top" alt="..."/>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" >
+<img src="..." class="card-img-top" alt="..."/>
+<div class="card-body">
+<h5 class="card-title">Card title</h5>
+<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+<div class="card" >
+<img src="..." class="card-img-top" alt="..."/>
+<div class="card-body">
+<h5 class="card-title">Card title</h5>
+<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+
+
+
 
         <div className="home-table-container">
 
