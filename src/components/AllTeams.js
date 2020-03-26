@@ -9,6 +9,7 @@ class AllTeams extends React.Component {
       <div className="allTeams-container">
         <h2 id="all-teams-header">All Teams</h2>
         <div className="search">
+          <p><strong>Search for teams by name:</strong></p>
           <input
             className="search-teams, form-control-sm"
             type="text"
