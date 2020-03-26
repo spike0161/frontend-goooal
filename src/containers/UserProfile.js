@@ -1,5 +1,9 @@
 import React from "react";
 import TeamCard from "../components/TeamCard";
+import "../App.css";
+import swal from 'sweetalert';
+
+
 
 class UserProfile extends React.Component {
   constructor() {
@@ -29,7 +33,7 @@ class UserProfile extends React.Component {
     this.setState(prevState => ({
       favTeams: prevState.favTeams.filter(team => team.id != id)
     }));
-    alert("Team has been removed from your favorites");
+    swal({text: "Team has been removed from your favorites", icon:"error"});
   };
 
   // removeTeam = id => {
@@ -37,16 +41,15 @@ class UserProfile extends React.Component {
   // };
 
   render() {
-    console.log("UserProfile", this.state);
     let favTeams = this.state.favTeams;
-
     return (
-      <div>
-        <h2>Welcome {}</h2>
+      <div id="user-profile-container">
 
         <div className="fav-teams-div">
-          <h4>Your favorite Teams</h4>
+          <h4 id="fav-teams-header">Your favorite Teams</h4>
 
+          <h3 id="h3-username">Dean88</h3>
+          <img src="https://i.ya-webdesign.com/images/funny-png-avatar-2.png" alt="Profile Pic" id="avatar"></img>
           {favTeams
             ? favTeams.map(teamObj => (
                 <TeamCard
