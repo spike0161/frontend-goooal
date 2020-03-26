@@ -35,5 +35,26 @@ float: right;
   margin-top: 100px;
 }
 
-.thead {
+/* all teams styling */
+
+.all-teams-div {
+
+}
+
+.image-div {
+  display: inline-flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 500px;
+      margin: 0 auto;
+}
+
+#all-teams-header {
+  text-align: center;
+  font-weight: 400;
+  font-size: 500;
+}
+
+.search {
+text-align: center;
 }

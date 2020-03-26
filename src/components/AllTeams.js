@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 import { Link } from "react-router-dom";
 
 class AllTeams extends React.Component {
@@ -6,10 +7,10 @@ class AllTeams extends React.Component {
     // console.log(this.props.teams);
     return (
       <div>
-        <h2>All Teams</h2>
-        <div>
+        <h2 id="all-teams-header">All Teams</h2>
+        <div className="search">
           <input
-            className="search-teams"
+            className="search-teams, form-control-sm"
             type="text"
             placeholder="Search Teams"
             onChange={e => this.props.search(e)}
@@ -17,7 +18,7 @@ class AllTeams extends React.Component {
         </div>
         {this.props.teams.map(team => (
           <Link to={`/teams/${team.id}`}>
-            <div>
+            <div className="image-div">
               <img
                 className="team-img"
                 key={team.id}
@@ -25,7 +26,6 @@ class AllTeams extends React.Component {
                 alt={team.shortName}
                 src={team.crestUrl}
               />
-              <h3>{team.full_name}</h3>
             </div>
           </Link>
         ))}
