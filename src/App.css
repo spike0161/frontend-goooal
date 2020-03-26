@@ -61,5 +61,23 @@ float: right;
 text-align: center;
 }
 
-.all-teams-container {
+#user-profile-container {
+  text-align: center;
+}
+
+#avatar {
+  width: 200px;
+  height: 200px;
+  margin: 35px;
+  float: left;
+}
+
+#h3-username {
+  text-align: left;
+  font-size: 40px;
+  margin-left: 35px;
+}
+
+#fav-teams-header {
+  font-size: 50px;
 }
