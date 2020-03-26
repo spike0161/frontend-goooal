@@ -61,6 +61,11 @@ class UserProfile extends React.Component {
               ))
             : null}
         </div>
+        <div className="bio-div">
+          <h2>Bio:</h2>
+          <p>Stared watching soccer at a very young age.</p> <br/>
+          <p>Played in middle school and highschool as a midfield player.</p>
+        </div>
       </div>
     );
   }

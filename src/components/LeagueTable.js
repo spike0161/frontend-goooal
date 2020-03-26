@@ -1,7 +1,7 @@
 import React from "react";
-import "../App.css";
 import { Link } from 'react-router-dom'
 
+// add links to each teams show page
 class LeagueTable extends React.Component {
 
 
@@ -13,9 +13,9 @@ class LeagueTable extends React.Component {
         <table className="table table-hover league-table">
           <thead></thead>
           <tbody>
-
             <tr>
               <th className="tg-0lax1">Position</th>
+              <th className="tg-0lax1"></th>
               <th className="tg-0lax1">Team</th>
               <th className="tg-0lax1">Played</th>
               <th className="tg-0lax1">Won</th>
@@ -28,8 +28,9 @@ class LeagueTable extends React.Component {
             </tr>
             { this.props.leagueTable.map(team => (
               <tr>
-                <td className="tg-0lax">{team.position}</td>
-                <td className="tg-0lax img"><span><img src={team.team.crestUrl} style={{width:20, height: 20}}/></span>{team.team.name}</td>
+                <td className="tg-0lax team-position">{team.position}</td>
+                <td className="img"><span><img src={team.team.crestUrl} alt='Team crest' style={{width:35, height: 35}}/></span></td>
+                <td className="tg-0lax">{team.team.name}</td>
                 <td className="tg-0lax">{team.playedGames}</td>
                 <td className="tg-0lax">{team.won}</td>
                 <td className="tg-0lax">{team.draw}</td>

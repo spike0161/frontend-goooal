@@ -49,7 +49,7 @@ class TeamShow extends React.Component {
       <div>
         <div>
           {this.props.team ? (
-            <div>
+            <div id="team-show-container">
 
               <img
                 src={this.props.team.crestUrl}
@@ -59,23 +59,23 @@ class TeamShow extends React.Component {
 
               <h1>{this.props.team.full_name}</h1>
                 <button
+                  className=" addBtn btn btn-lg"
                   onClick={() => this.props.handleFavoriteTeam(this.props.team)}
                 >
                   Favorite
                 </button>
-              <h3>{this.props.team.tla}</h3>
-
-
-                <p>Phone Number: {this.props.team.phone}</p>
-                <p>Year Founded: {this.props.team.founded}</p>
-                <p>Team Colors: {this.props.team.club_colors}</p>
-                <p>Stadium: {this.props.team.venue}</p>
-                <p><a href={this.props.team.website}>{this.props.team.website}</a></p>
+                <div id='team-info-div'>
+                  <p>Phone Number: {this.props.team.phone}</p>
+                  <p>Year Founded: {this.props.team.founded}</p>
+                  <p>Team Colors: {this.props.team.club_colors}</p>
+                  <p>Stadium: {this.props.team.venue}</p>
+                  <p><a href={this.props.team.website}>{this.props.team.website}</a></p>
+                </div>
             </div>
           ) : null}
         </div>
 
-        <div>
+        <div id="team-roster-div">
           <select
             className="ui search dropdown"
             getFilteredPositions={this.getFilteredPositions()}
