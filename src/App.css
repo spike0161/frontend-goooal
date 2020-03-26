@@ -17,7 +17,34 @@ float: right;
 
 /* Table styling LeagueTable and top5Table */
 
-.home-table-container {
+.league-table {
+  width: 300px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#table-thead {
+  text-align: center;
+  margin: 50px;
+  font-size: 100px;
+}
+
+#league-logo {
+  width: 300px;
+  height: 200px;
+}
+
+.tg-0lax1 {
+  font-size: 30px;
+}
+
+.tg-0lax {
+  font-weight: bold;
+}
+
+.img {
+  width: auto;
 }
 
 .team-crests-div {
