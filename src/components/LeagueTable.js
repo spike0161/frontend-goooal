@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 class LeagueTable extends React.Component {
 
 
   render() {
-    console.log(this.props.leagueTable);
+    console.log(this.props.leagueTable, "League Table:", this.props);
     return (
       <div>
-        <table className="tg">
+        <table className="table table-hover league-table">
           <thead> Premier League Table</thead>
           <tbody>
 
@@ -26,7 +27,7 @@ class LeagueTable extends React.Component {
             { this.props.leagueTable.map(team => (
               <tr>
                 <td className="tg-0lax">{team.position}</td>
-                <td className="tg-0lax">{team.team.name}</td>
+                <td className="tg-0lax"><span><img src={team.team.crestUrl} style={{width:20, height: 20}}/></span>{team.team.name}</td>
                 <td className="tg-0lax">{team.playedGames}</td>
                 <td className="tg-0lax">{team.won}</td>
                 <td className="tg-0lax">{team.draw}</td>

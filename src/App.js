@@ -9,8 +9,9 @@ import {
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
-import SignUp from "./containers/signup";
-import Login from "./containers/login";
+// import SignUp from "./containers/signup";
+// import Login from "./containers/login";
+import About from "./components/About";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 import AllTeams from "./components/AllTeams";
@@ -143,7 +144,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("In App", this.state);
+    console.log("In App", this.top5Table);
     return (
       <div>
         <Router>
@@ -171,9 +172,9 @@ class App extends React.Component {
 
             <Route
               exact
-              path="/login"
+              path="/about"
               render={props => {
-                return <Login  />;
+                return <About  />;
               }}
             />
 
@@ -221,7 +222,7 @@ class App extends React.Component {
                 exact
                 path="/leaguetable"
                 render={props => {
-                  return <LeagueTable leagueTable={this.state.leagueTable} />;
+                  return <LeagueTable leagueTable={this.state.leagueTable} allTeams={this.state.allTeams} />;
                 }}
               />
             </Switch>

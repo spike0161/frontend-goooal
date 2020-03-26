@@ -42,7 +42,7 @@ class UserProfile extends React.Component {
 
     return (
       <div>
-        <h2>Welcome {}</h2>
+        <h2>Profile</h2>
 
         <div className="fav-teams-div">
           <h4>Your favorite Teams</h4>
