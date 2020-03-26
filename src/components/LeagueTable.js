@@ -1,7 +1,7 @@
 import React from "react";
-import "../App.css";
 import { Link } from 'react-router-dom'
 
+// add links to each teams show page
 class LeagueTable extends React.Component {
 
 
@@ -13,7 +13,6 @@ class LeagueTable extends React.Component {
         <table className="table table-hover league-table">
           <thead></thead>
           <tbody>
-// add links to each teams show page
             <tr>
               <th className="tg-0lax1">Position</th>
               <th className="tg-0lax1"></th>
