@@ -157,3 +157,16 @@ flex-wrap: wrap;
 font-weight: 700;
 flex-direction: row-reverse;
 }
+
+.fa-github {
+  font-size: 30px;
+  color: black;
+  margin: 10px;
+}
+
+.fa-linkedin {
+  font-size: 30px;
+  color: black;
+  margin: 10px;
+
+}
