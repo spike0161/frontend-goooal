@@ -15,6 +15,8 @@ import About from "./components/About";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 import AllTeams from "./components/AllTeams";
+import swal from 'sweetalert';
+
 
 class App extends React.Component {
   constructor() {
@@ -128,7 +130,7 @@ class App extends React.Component {
         team_id: team.id
       })
     });
-    alert("Team has been favorited");
+    swal({text:"Team has been favorited", icon: "success"});
   };
 
   searchTextHandler = e => {
