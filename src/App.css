@@ -1,6 +1,25 @@
 body {
 }
 
+
+/* Table styling LeagueTable and top5Table */
+
+.team-crests-div {
+  margin: 40px;
+  text-align: center;
+}
+
+.crest-card-img {
+  margin: 9px;
+}
+
 .league-table {
 
+}
+
+.table {
+  margin-top: 100px;
+}
+
+.thead {
 }

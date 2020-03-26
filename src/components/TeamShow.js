@@ -5,11 +5,12 @@ class TeamShow extends React.Component {
   constructor() {
     super();
     this.state = {
-      playerPosition: ""
+      playerPosition: "",
+      // upComing: []
     };
   }
 
-  // componentDidMount() {
+  // upComingGames = () => {
   //   fetch(
   //     `http://api.football-data.org/v2/teams/${this.props.team.id}/matches?status=SCHEDULED`,
   //     {
@@ -43,12 +44,13 @@ class TeamShow extends React.Component {
   };
 
   render() {
-    console.log("TeamShow", this.getPlayers());
+    console.log("TeamShow", this.props);
     return (
       <div>
         <div>
           {this.props.team ? (
             <div>
+
               <img
                 src={this.props.team.crestUrl}
                 style={{ width: 200, height: 200 }}
@@ -69,7 +71,6 @@ class TeamShow extends React.Component {
                 <p>Team Colors: {this.props.team.club_colors}</p>
                 <p>Stadium: {this.props.team.venue}</p>
                 <p><a href={this.props.team.website}>{this.props.team.website}</a></p>
-
             </div>
           ) : null}
         </div>

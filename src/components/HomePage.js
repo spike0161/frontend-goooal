@@ -21,23 +21,26 @@ class HomePage extends React.Component {
     console.log("HomePage props:", this.props);
     return (
       <div>
-        {this.props.allTeams.map(team => (
-          <Link to={`/teams/${team.id}`}>
-            <img
-              className="rest-card-img"
-              key={team.id}
-              style={{ width: 50, height: 50 }}
-              alt={team.shortName}
-              src={team.crestUrl}
-            />
-          </Link>
-        ))}
+        <div className="team-crests-div">
+
+          {this.props.allTeams.map(team => (
+            <Link to={`/teams/${team.id}`}>
+              <img
+                className="crest-card-img"
+                key={team.id}
+                style={{ width: 50, height: 50 }}
+                alt={team.shortName}
+                src={team.crestUrl}
+                />
+            </Link>
+          ))}
+        </div>
 
 
 
 
-        <table className="table" style={{width: 200}}>
-          <thead>Top Five Teams</thead>
+        <table className="table table-hover" style={{width: 200}}>
+          <thead className="thead"></thead>
           <tbody>
             <tr>
               <th className="tg-cly1">Position</th>
@@ -50,7 +53,7 @@ class HomePage extends React.Component {
             {this.props.top5Table.map(team => (
               <tr>
                 <td className="tg-0lax">{team.position}</td>
-               <td className="tg-0lax" ><img src={team.team.crestUrl} alt={team.team.name} style={{width: 25, height: 25}}/></td>
+                <td className="tg-0lax"><img src={team.team.crestUrl} alt={team.team.name} style={{width: 25, height: 25}}/></td>
                 <td className="tg-0lax">{team.team.name}</td>
                 <td className="tg-0lax">{team.playedGames}</td>
                 <td className="tg-0lax">{team.won}</td>
