@@ -44,11 +44,16 @@ float: right;
 }
 
 .img {
-  width: auto;
+  width: ;
+}
+
+.team-position {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .team-crests-div {
-  margin: 40px;
+  margin: 5px;
   text-align: center;
 }
 
