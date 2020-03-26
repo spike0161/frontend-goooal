@@ -61,9 +61,6 @@ float: right;
   margin: 9px;
 }
 
-.league-table {
-
-}
 
 .table {
   margin-top: 100px;
@@ -133,4 +130,30 @@ text-align: center;
 
 .navbar-nav {
   text-align: center;
+}
+
+/* Team Show page styling */
+
+#team-show-container {
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 40%;
+  margin-right: auto;
+}
+
+.addBtn {
+  font-weight: 700;
+  margin: 15px;
+  line-height: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#roster {
+flex-wrap: wrap;
+}
+
+#team-info-div {
+font-weight: 700;
+flex-direction: row-reverse;
 }
