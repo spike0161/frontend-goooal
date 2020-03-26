@@ -1,4 +1,6 @@
 body {
+  background-image: url("./images/background.jpg");
+  background-size: contain;
 
 
 }
@@ -57,4 +59,7 @@ float: right;
 
 .search {
 text-align: center;
+}
+
+.all-teams-container {
 }
