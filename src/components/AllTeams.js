@@ -17,9 +17,10 @@ class AllTeams extends React.Component {
             onChange={e => this.props.search(e)}
           />
         </div>
+        <div className="crest-container">
         {this.props.teams.map(team => (
           <Link to={`/teams/${team.id}`}>
-            <div className="image-div">
+            <span>
               <img
                 className="team-img"
                 key={team.id}
@@ -27,9 +28,10 @@ class AllTeams extends React.Component {
                 alt={team.shortName}
                 src={team.crestUrl}
               />
-            </div>
+          </span>
           </Link>
         ))}
+      </div>
       </div>
     );
   }
