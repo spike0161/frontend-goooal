@@ -42,8 +42,10 @@ float: right;
   font-weight: bold;
 }
 
-.img {
-  width: ;
+.card {
+  margin: 10px;
+  margin-top: 80px;
+  background-color: lightsteelblue;
 }
 
 .team-position {

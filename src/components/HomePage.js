@@ -68,7 +68,7 @@ class HomePage extends React.Component {
 
         {this.props.news.map(article => (
         <div className="card" style={{width: 18 + 'rem'}}>
-          <img src={article.image} className="card-img-top" alt={article.url}/>
+          <img src={article.image} className="card-img-top" alt="Article Image"/>
           <div className="card-body">
             <h5 className="card-title">{article.title}</h5>
             <p className="card-text">{article.description}</p>

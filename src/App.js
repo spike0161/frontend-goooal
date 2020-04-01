@@ -146,7 +146,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("In App", this.top5Table);
+    // console.log("In App", this.top5Table);
     return (
       <div>
         <Router>
