@@ -210,3 +210,23 @@ font-weight: 700;
   margin: 10px;
 
 }
+
+/* login form styling */
+
+#login-form-container {
+  width: 40%;
+  background-color: white;
+  padding: 30px;
+  padding-top: 200px;
+  margin: auto;
+  justify-content: center;
+}
+
+.form-control {
+  font-size: 20px;
+}
+
+.label {
+  font-style: 30px;
+  font-weight: 600;
+}
