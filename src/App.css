@@ -149,6 +149,10 @@ size:
   text-align: center;
 }
 
+.nav-item {
+  margin: 20px;
+}
+
 /* Team Show page styling */
 
 #team-show-container {
