@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Logo from '../images/GOOAL.png'
 import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
@@ -26,6 +27,7 @@ export default class Login extends Component {
 
       <div id="login-form-container">
       <form>
+        <img src={Logo} />
           <div className="form-group row">
               <label for="inputUsername" className="col-sm-2 col-form-label label" >Username</label>
               <div className="col-sm-10">
