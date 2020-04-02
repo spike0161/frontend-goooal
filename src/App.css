@@ -74,10 +74,6 @@ float: right;
 
 /* all teams styling */
 
-.all-teams-div {
-
-}
-
 .form-control-sm {
   border: 2px, solid black;
   font-size: 30px;
@@ -217,9 +213,10 @@ font-weight: 700;
   width: 40%;
   background-color: white;
   padding: 30px;
-  padding-top: 200px;
+  /* padding-top: 200px; */
   margin: auto;
   justify-content: center;
+  background-color: #1a2940
 }
 
 .form-control {
@@ -227,6 +224,13 @@ font-weight: 700;
 }
 
 .label {
-  font-style: 30px;
+  font-style: 40px;
   font-weight: 600;
+  color: white;
+
+}
+
+#login-logo {
+  margin: auto;
+  color: white;
 }

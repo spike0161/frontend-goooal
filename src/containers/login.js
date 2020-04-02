@@ -26,8 +26,8 @@ export default class Login extends Component {
     return (
 
       <div id="login-form-container">
-      <form>
-        <img src={Logo} />
+      <form onSubmit={this.submitHandler}>
+        <img src={Logo} alt="Goal Image" id="login-logo"/>
           <div className="form-group row">
               <label for="inputUsername" className="col-sm-2 col-form-label label" >Username</label>
               <div className="col-sm-10">
@@ -52,16 +52,3 @@ export default class Login extends Component {
     )
   }
 }
-
-//
-// <form onSubmit={this.submitHandler}>
-// <div className="form-group row">
-// <label for="inputUsername" className="col-sm-2 col-form-label">Username</label>
-// <div className="col-sm-10">
-// <input type="text" className="form-control" placeholder="username" />
-// </div>
-// <input type="password" placeholder="password" />
-// <input type="submit" value="Login" />
-//
-// </form>
-// </div>
