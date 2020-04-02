@@ -153,7 +153,7 @@ class App extends React.Component {
           <NavBar />
 
           <div className="App">
-            <Switch>
+            
 
               {this.state.currentUser ?
                 <Route
@@ -227,7 +227,7 @@ class App extends React.Component {
                   return <LeagueTable leagueTable={this.state.leagueTable} allTeams={this.state.allTeams} />;
                 }}
               />
-            </Switch>
+
           </div>
         </Router>
       </div>

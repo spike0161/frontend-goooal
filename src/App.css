@@ -48,6 +48,10 @@ float: right;
   background-color: lightsteelblue;
 }
 
+.card-img {
+  padding: 10px;
+}
+
 .team-position {
   font-size: 30px;
   font-weight: bold;
@@ -55,6 +59,7 @@ float: right;
 
 .team-crests-div {
   margin: 5px;
+  margin-top: 10px;
   text-align: center;
 }
 
