@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
 // import SignUp from "./containers/signup";
-// import Login from "./containers/login";
+import Login from "./containers/Login";
 import About from "./components/About";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
@@ -153,9 +153,9 @@ class App extends React.Component {
           <NavBar />
 
           <div className="App">
-            
 
-              {this.state.currentUser ?
+
+
                 <Route
                   exact
                   path="/"
@@ -168,8 +168,7 @@ class App extends React.Component {
                       />
                     );
                   }}
-                /> :
-                <Redirect to="/signup" />
+                />
             }
 
             <Route
@@ -179,6 +178,9 @@ class App extends React.Component {
                 return <About  />;
               }}
             />
+          <Route exact path="/login">
+            <Login/>
+            </Route>
 
 
 

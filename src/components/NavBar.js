@@ -3,8 +3,8 @@ import Logo from '../images/GOOAL.png'
 
 import { Link } from 'react-router-dom'
 
-// <a className="nav-item nav-link" href="/signUp">Sign up</a>
-// <a className="nav-item nav-link" href="#" onClick={ e => props.logoutHandler(e)}>Logout</a>
+// <Link to="/signUp" className="nav-item">Sign up</Link>
+// <Link className="nav-item nav-link" href="#" onClick={ e => props.logoutHandler(e)}>Logout</a>
 const NavBar = (props) => {
   return(
     <div>
