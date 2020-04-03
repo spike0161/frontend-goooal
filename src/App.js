@@ -24,7 +24,7 @@ class App extends React.Component {
     this.state = {
       allTeams: [],
       news: [],
-      currentUser: {id: 1},
+      currentUser: null,
       players: [],
       searchText: "",
       leagueTable: []
@@ -79,10 +79,10 @@ class App extends React.Component {
         username: userName
       })
     }
-
     fetch("http://localhost:3000/users", configObj)
     .then(res => res.json())
     .then(user => this.setState({currentUser: user}))
+    .then(<Redirect to="/profile/:id" />)
   };
 
 
@@ -151,7 +151,7 @@ class App extends React.Component {
       <div>
         <Router>
           <NavBar currentUser={this.state.currentUser}/>
-          <Signup />
+          <Signup signUpHandler={this.signUpHandler}/>
           <div className="App">
 
 
