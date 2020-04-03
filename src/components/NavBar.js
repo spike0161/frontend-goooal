@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 // <Link to="/signUp" className="nav-item">Sign up</Link>
 // <Link className="nav-item nav-link" href="#" onClick={ e => props.logoutHandler(e)}>Logout</a>
 const NavBar = (props) => {
+  console.log("navbar:", props);
   return(
     <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

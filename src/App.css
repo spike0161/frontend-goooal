@@ -209,7 +209,7 @@ font-weight: 700;
 
 /* login form styling */
 
-#login-form-container {
+.form-container {
   width: 40%;
   background-color: white;
   padding: 30px;
@@ -233,4 +233,13 @@ font-weight: 700;
 #login-logo {
   margin: auto;
   color: white;
+}
+
+.signup-text {
+  font-size: 30px;
+  font-weight: 800px;
+  font-style: italic;
+  color: white;
+  text-align: center;
+
 }

@@ -9,7 +9,7 @@ import {
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
-// import SignUp from "./containers/signup";
+import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import About from "./components/About";
 import UserProfile from "./containers/UserProfile";
@@ -150,15 +150,15 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar />
-
+          <NavBar currentUser={this.state.currentUser}/>
+          <Signup />
           <div className="App">
 
 
 
                 <Route
                   exact
-                  path="/"
+                  path="/homepage"
                   render={props => {
                     return (
                       <HomePage

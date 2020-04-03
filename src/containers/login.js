@@ -25,7 +25,7 @@ export default class Login extends Component {
     }
     return (
 
-      <div id="login-form-container">
+      <div className="form-container">
       <form onSubmit={this.submitHandler}>
         <img src={Logo} alt="Goal Image" id="login-logo"/>
           <div className="form-group row">
