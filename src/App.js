@@ -9,14 +9,13 @@ import {
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
-import Signup from "./containers/Signup";
+// import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import About from "./components/About";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
 import AllTeams from "./components/AllTeams";
-import swal from 'sweetalert';
-
+import swal from "sweetalert";
 
 class App extends React.Component {
   constructor() {
@@ -66,45 +65,29 @@ class App extends React.Component {
   signUpHandler = (e, formInfo) => {
     e.preventDefault();
     let name = formInfo.name;
-    let userName = formInfo.userName;
+    let username = formInfo.userName;
 
     let configObj = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        name: name,
-        username: userName
-      })
-    }
-    fetch("http://localhost:3000/users", configObj)
-    .then(res => res.json())
-    .then(user => this.setState({currentUser: user}))
-    .then(<Redirect to="/profile/:id" />)
-  };
-
-
-  loginHandler = e => {
-    e.preventDefault();
-    fetch("http://localhost:3000/fakelogin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        username: e.target.value
+        name: name,
+        username: username
       })
-    })
+    };
+    fetch("http://localhost:3000/users", configObj)
       .then(res => res.json())
-      .then(data =>
-        this.setState({
-          currentUser: data
-        })
-      );
+      .then(user => this.setState({ currentUser: user }))
+      .then(<Redirect to="/profile/:id" />);
   };
+
+  updateCurrentUser = user => {
+    this.setState({ currentUser: user });
+  };
+
 
 
   // logoutHandler = () => {
@@ -130,7 +113,7 @@ class App extends React.Component {
         team_id: team.id
       })
     });
-    swal({text:"Team has been favorited", icon: "success"});
+    swal({ text: "Team has been favorited", icon: "success" });
   };
 
   searchTextHandler = e => {
@@ -150,87 +133,77 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar currentUser={this.state.currentUser}/>
-          <Signup signUpHandler={this.signUpHandler}/>
+          <NavBar currentUser={this.updateCurrentUser} />
           <div className="App">
-
-
-
-                <Route
-                  exact
-                  path="/homepage"
-                  render={props => {
-                    return (
-                      <HomePage
-                        news={this.state.news}
-                        allTeams={this.state.allTeams}
-                        top5Table={this.top5Table()}
-                      />
-                    );
-                  }}
-                />
-            }
-
             <Route
               exact
-              path="/about"
+              path="/homepage"
               render={props => {
-                return <About  />;
+                return (
+                  <HomePage
+                    news={this.state.news}
+                    allTeams={this.state.allTeams}
+                    top5Table={this.top5Table()}
+                  />
+                );
               }}
             />
-          <Route exact path="/login">
-            <Login/>
-            </Route>
-
-
-
-              <Route
-                exact
-                path="/users/1"
-                render={props => {
-                  return <UserProfile user={this.state.currentUser} />;
-                }}
+            }
+            <Route
+              exact path="/about" component={About}
+            />
+          <Switch>
+          <Route exact path="/" render={() => <Redirect to="/login"/>}/>
+          <Route exact path="/profile" render={() => {
+              return this.state.currentUser ? <UserProfile user={this.state.currentUser}/> :
+              <Redirect to="/login"/>
+            }} />
+          <Route exact path="/login" render={() => {
+              return this.state.currentUser ? <Redirect to="/profile"/> : <Login updateCurrentUser={this.updateCurrentUser}
               />
+            }} />
+        </Switch>
 
-              <Route
-                path="/teams/:id"
-                render={props => {
-                  let id = parseInt(props.match.params.id);
-                  let teamObj = this.state.allTeams.find(
-                    team => team.id === id
-                  );
-                  return (
-                    <TeamShow
-                      team={teamObj}
-                      players={this.state.players}
-                      handleFavoriteTeam={this.handleFavoriteTeam}
-                    />
-                  );
-                }}
-              />
 
-              <Route
-                exact
-                path="/allTeams"
-                render={props => {
-                  return (
-                    <AllTeams
-                      search={this.searchTextHandler}
-                      teams={this.getFilteredTeams()}
-                    />
-                  );
-                }}
-              />
-
-              <Route
-                exact
-                path="/leaguetable"
-                render={props => {
-                  return <LeagueTable leagueTable={this.state.leagueTable} allTeams={this.state.allTeams} />;
-                }}
-              />
-
-          </div>
+            <Route
+              path="/teams/:id"
+              render={props => {
+                let id = parseInt(props.match.params.id);
+                let teamObj = this.state.allTeams.find(team => team.id === id);
+                return (
+                  <TeamShow
+                    team={teamObj}
+                    players={this.state.players}
+                    handleFavoriteTeam={this.handleFavoriteTeam}
+                  />
+                );
+              }}
+            />
+            <Route
+              exact
+              path="/allTeams"
+              render={props => {
+                return (
+                  <AllTeams
+                    search={this.searchTextHandler}
+                    teams={this.getFilteredTeams()}
+                  />
+                );
+              }}
+            />
+            <Route
+              exact
+              path="/leaguetable"
+              render={props => {
+                return (
+                  <LeagueTable
+                    leagueTable={this.state.leagueTable}
+                    allTeams={this.state.allTeams}
+                  />
+                );
+              }}
+            />
+        </div>
         </Router>
       </div>
     );
