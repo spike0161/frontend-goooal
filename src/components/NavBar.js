@@ -14,9 +14,10 @@ const NavBar = (props) => {
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav">
       <Link to="/leaguetable" className="nav-item">League Table </Link>
+      <Link to="/homepage" className="nav-item">Home Page</Link>
       <Link to="/allTeams" className="nav-item">Teams</Link>
       <Link to="https://www.worldsoccershop.com/shop/leagues/premier-league" className="nav-item">Shop Apparel</Link>
-      <Link to="/users/1" className="nav-item">Your Profile</Link>
+      <Link to="/profile/" className="nav-item">Your Profile</Link>
       <Link to="/about" className="nav-item">About</Link>
     </div>
   </div>

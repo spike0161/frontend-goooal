@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
 // import Signup from "./containers/Signup";
-import Login from "./containers/Login";
+import Login from "./containers/login";
 import About from "./components/About";
 import UserProfile from "./containers/UserProfile";
 import LeagueTable from "./components/LeagueTable";
@@ -133,7 +133,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar currentUser={this.updateCurrentUser} />
+          <NavBar currentUser={this.state.currentUser} />
           <div className="App">
             <Route
               exact

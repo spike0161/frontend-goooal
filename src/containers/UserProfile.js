@@ -15,7 +15,7 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/users/1")
+    fetch(`http://localhost:3000/${this.props.user.id}`)
       .then(res => res.json())
       .then(data =>
         this.setState({ usersArr: data, favTeams: data.favorites })
@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
   }
 
   removeFavoriteTeam = id => {
-    fetch(`http://localhost:3000/favorite_teams/1/${id}`, {
+    fetch(`http://localhost:3000/favorite_teams/${this.props.user.id}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -41,15 +41,15 @@ class UserProfile extends React.Component {
   // };
 
   render() {
+    console.log("In user Profile:", this.props)
     let favTeams = this.state.favTeams;
     return (
       <div id="user-profile-container">
-
         <div className="fav-teams-div">
           <h4 id="fav-teams-header">Your favorite Teams</h4>
 
-          <h3 id="h3-username">Dean88</h3>
-          <img src="https://i.ya-webdesign.com/images/funny-png-avatar-2.png" alt="Profile Pic" id="avatar"></img>
+          <h3 id="h3-username"> Welcome {this.props.user.username}</h3>
+          <img src={this.props.user.avatar} alt="Profile Pic" id="avatar"></img>
           {favTeams
             ? favTeams.map(teamObj => (
               <div id="fav-team-div">
@@ -66,8 +66,7 @@ class UserProfile extends React.Component {
         </div>
         <div className="bio-div">
           <h2>Bio:</h2>
-          <p>Stared watching soccer at a very young age.</p> <br/>
-          <p>Played in middle school and highschool as a midfield player.</p>
+          <p>{this.props.user.bio}</p>
         </div>
       </div>
     );
