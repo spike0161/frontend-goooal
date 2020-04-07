@@ -148,7 +148,7 @@ class App extends React.Component {
                 );
               }}
             />
-            }
+            
             <Route
               exact path="/about" component={About}
             />

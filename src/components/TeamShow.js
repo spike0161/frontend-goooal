@@ -54,21 +54,23 @@ class TeamShow extends React.Component {
                 src={this.props.team.crestUrl}
                 style={{ width: 200, height: 200 }}
                 alt={this.props.team.shortName}
+                id="team-show-logo"
               />
             <div id='team-info-div'>
-              <h1>{this.props.team.full_name}</h1>
+              <h1 id="team-name">{this.props.team.full_name}</h1>
                 <button
                   className=" addBtn btn btn-lg"
                   onClick={() => this.props.handleFavoriteTeam(this.props.team)}
                 >
                   Favorite
                 </button>
-
+                <div id="team-info-div">
                   <p>Phone Number: {this.props.team.phone}</p>
                   <p>Year Founded: {this.props.team.founded}</p>
                   <p>Team Colors: {this.props.team.club_colors}</p>
                   <p>Stadium: {this.props.team.venue}</p>
                   <p><a href={this.props.team.website}>{this.props.team.website}</a></p>
+                </div>
                 </div>
 
           </div>
