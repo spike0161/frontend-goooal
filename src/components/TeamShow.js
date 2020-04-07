@@ -64,7 +64,7 @@ class TeamShow extends React.Component {
                 >
                   Favorite
                 </button>
-                <div id="team-info-div">
+                <div id="team-info">
                   <p>Phone Number: {this.props.team.phone}</p>
                   <p>Year Founded: {this.props.team.founded}</p>
                   <p>Team Colors: {this.props.team.club_colors}</p>

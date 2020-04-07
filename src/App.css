@@ -172,6 +172,7 @@ size:
   background-color: rgba(11, 43, 186);
   color: white;
   margin: 15px;
+  margin-left: 650px;
   line-height: 15px;
   border: 1px solid black;
   cursor: pointer;
@@ -185,7 +186,7 @@ font-weight: 600;
 height: 100px;
 }
 
-#team-info-div {
+#team-info {
   margin-left: 100px;
 }
 
