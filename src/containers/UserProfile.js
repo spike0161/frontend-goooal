@@ -18,7 +18,6 @@ class UserProfile extends React.Component {
     fetch(`http://localhost:3000/users/${this.props.user.id}`)
       .then(res => res.json())
       .then(data => {
-        debugger
         this.setState({ usersArr: data, favTeams: data.favorites })
       }
       );
@@ -43,7 +42,6 @@ class UserProfile extends React.Component {
   // };
 
   render() {
-    console.log("In user Profile:", this.props)
     let favTeams = this.state.favTeams;
     return (
       <div id="user-profile-container">

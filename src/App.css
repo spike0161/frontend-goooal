@@ -152,13 +152,14 @@ size:
 /* Team Show page styling */
 
 #team-show-logo {
-  margin-left: 600px;
+  margin-left: 100px;
 }
 
 #team-name {
-  margin-left: 550px;
+  margin-left: 100px;
   margin-top: 30px;
   font-size: 50px;
+  text-align: center;
 }
 
 #team-show-container {
@@ -172,7 +173,7 @@ size:
   background-color: rgba(11, 43, 186);
   color: white;
   margin: 15px;
-  margin-left: 650px;
+  margin-left: 100px;
   line-height: 15px;
   border: 1px solid black;
   cursor: pointer;
@@ -180,8 +181,8 @@ size:
 
 #team-roster-div {
 float: right;
-margin-top: 400px;
 margin-right: 50px;
+margin-top: 200px;
 font-weight: 600;
 height: 100px;
 }
@@ -231,6 +232,7 @@ font-weight: 700;
   padding: 30px;
   /* padding-top: 200px; */
   margin: auto;
+  margin-top: 100px;
   justify-content: center;
   background-color: #1a2940
 }

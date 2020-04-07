@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-// add links to each teams show page
 class LeagueTable extends React.Component {
 
 
   render() {
-    console.log(this.props.leagueTable, "League Table:", this.props);
     return (
       <div id='league-table-container'>
         <h1 id="table-thead">Premier League Table <span><img src="https://1000logos.net/wp-content/uploads/2017/05/Premier-League-Logo.png" id="league-logo"></img></span></h1>

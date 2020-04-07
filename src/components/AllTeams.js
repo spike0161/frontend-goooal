@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 class AllTeams extends React.Component {
   render() {
-    // console.log(this.props.teams);
     return (
       <div className="allTeams-container">
         <h2 id="all-teams-header">All Teams</h2>

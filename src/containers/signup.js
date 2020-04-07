@@ -24,7 +24,6 @@ import Logo  from '../images/GOOAL.png'
   };
 
   render() {
-    console.log(this.state);
     return (
       <div>
 

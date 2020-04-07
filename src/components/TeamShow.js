@@ -50,6 +50,7 @@ class TeamShow extends React.Component {
           {this.props.team ? (
             <div>
 
+              <h1 id="team-name">{this.props.team.full_name}</h1>
               <img
                 src={this.props.team.crestUrl}
                 style={{ width: 200, height: 200 }}
@@ -57,7 +58,6 @@ class TeamShow extends React.Component {
                 id="team-show-logo"
               />
             <div id='team-info-div'>
-              <h1 id="team-name">{this.props.team.full_name}</h1>
                 <button
                   className=" addBtn btn btn-lg"
                   onClick={() => this.props.handleFavoriteTeam(this.props.team)}
