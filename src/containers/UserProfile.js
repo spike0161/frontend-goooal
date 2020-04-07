@@ -15,10 +15,12 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/${this.props.user.id}`)
+    fetch(`http://localhost:3000/users/${this.props.user.id}`)
       .then(res => res.json())
-      .then(data =>
+      .then(data => {
+        debugger
         this.setState({ usersArr: data, favTeams: data.favorites })
+      }
       );
   }
 
