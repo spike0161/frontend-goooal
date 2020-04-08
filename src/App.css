@@ -74,15 +74,15 @@ float: right;
 
 /* all teams styling */
 
+
 .form-control-sm {
   border: 2px, solid black;
   font-size: 30px;
 }
 
 .crest-container {
-  margin: auto;
   display: inline-flex;
-  width: 100%;
+  overflow: auto;
 }
 
 #all-teams-header {

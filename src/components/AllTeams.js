@@ -20,13 +20,19 @@ class AllTeams extends React.Component {
         {this.props.teams.map(team => (
           <Link to={`/teams/${team.id}`}>
             <span>
-              <img
-                className="team-img"
-                key={team.id}
-                style={{ width: 100, height: 100, margin: 20 }}
-                alt={team.shortName}
-                src={team.crestUrl}
-              />
+              <div className="container">
+                <div className="row">
+                  <div className="col-3">
+                    <img
+                      className="team-img"
+                      key={team.id}
+                      style={{ width: 100, height: 100, margin: 20 }}
+                      alt={team.shortName}
+                      src={team.crestUrl}
+                      />
+                  </div>
+                </div>
+              </div>
           </span>
           </Link>
         ))}
