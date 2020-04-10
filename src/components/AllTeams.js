@@ -8,7 +8,9 @@ class AllTeams extends React.Component {
       <div className="allTeams-container">
         <h2 id="all-teams-header">All Teams</h2>
         <div className="search">
-          <p><strong>Search for teams by name:</strong></p>
+          <p>
+            <strong>Search for teams by name:</strong>
+          </p>
           <input
             className="search-teams, form-control-sm"
             type="text"
@@ -16,27 +18,23 @@ class AllTeams extends React.Component {
             onChange={e => this.props.search(e)}
           />
         </div>
-        <div className="crest-container">
-        {this.props.teams.map(team => (
-          <Link to={`/teams/${team.id}`}>
-            <span>
-              <div className="container">
-                <div className="row">
-                  <div className="col-3">
-                    <img
-                      className="team-img"
-                      key={team.id}
-                      style={{ width: 100, height: 100, margin: 20 }}
-                      alt={team.shortName}
-                      src={team.crestUrl}
-                      />
-                  </div>
+        <div className="crest-container container">
+          <div className="row">
+            {this.props.teams.map(team => (
+              <Link to={`/teams/${team.id}`}>
+                <div className="col-4">
+                  <img
+                    className="team-img"
+                    key={team.id}
+                    style={{ width: 100, height: 100, margin: 20 }}
+                    alt={team.shortName}
+                    src={team.crestUrl}
+                  />
                 </div>
-              </div>
-          </span>
-          </Link>
-        ))}
-      </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
