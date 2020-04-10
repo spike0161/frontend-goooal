@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom'
-import Logo  from '../images/GOOAL.png'
+import { Link } from "react-router-dom";
+import Logo from "../images/GOOAL.png";
 
- class Signup extends React.Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       name: "",
-      userName: ""
+      userName: "",
+      bio: "",
+      avatar: ""
     };
   }
-
-
 
   nameHandler = e => {
     this.setState({ name: e.target.value });
@@ -23,42 +23,68 @@ import Logo  from '../images/GOOAL.png'
     this.setState({ userName: e.target.value });
   };
 
+  bioHandler = e => {
+    this.setState({ bio: e.target.value });
+  };
+
+  avatarHandler = e => {
+    this.setState({ avatar: e.target.value });
+  };
+
   render() {
     return (
       <div>
-
         <div className="form-container">
           <form onSubmit={e => this.props.signUpHandler(e, this.state)}>
             <h3 className="signup-text">Sign up!!</h3>
-            <img src={Logo} alt="Goal Image" id="login-logo"/>
+            <img src={Logo} alt="Goal Image" id="login-logo" />
             <div class="form-group row">
-              <label for="username" className="col-sm-2 col-form-label label">Name</label>
+              <label for="username" className="col-sm-2 col-form-label label">
+                Name
+              </label>
               <div className="col-sm-10">
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                onChange={e => this.nameHandler(e)}
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  onChange={e => this.nameHandler(e)}
                 />
-            </div>
+              </div>
             </div>
             <div class="form-group row">
-              <label for="username" className="col-sm-2 col-form-label label">Username</label>
+              <label for="username" className="col-sm-2 col-form-label label">
+                Username
+              </label>
               <div className="col-sm-10">
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                onChange={e => this.userNameHandler(e)}
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  onChange={e => this.userNameHandler(e)}
                 />
+              </div>
             </div>
+            <div class="form-group row">
+              <label for="bio" className="col-sm-2 col-form-label label">
+                Enter a bio
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bio"
+                  onChange={e => this.bioHandler(e)}
+                />
+              </div>
             </div>
             <div className="col-sm-10 offset-sm-2">
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
-            <Link to='/login'><p>Already a member?</p></Link>
-          </div>
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button>
+              <Link to="/login">
+                <p>Already a member?</p>
+              </Link>
+            </div>
           </form>
         </div>
       </div>
@@ -66,4 +92,4 @@ import Logo  from '../images/GOOAL.png'
   }
 }
 
-export default Signup
+export default Signup;

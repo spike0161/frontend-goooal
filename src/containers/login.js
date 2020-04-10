@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Logo from '../images/GOOAL.png'
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 export default class Login extends Component {
   constructor(props) {
@@ -55,6 +55,7 @@ export default class Login extends Component {
 
       <div className="form-container">
       <form onSubmit={this.loginHandler}>
+        <h3 className="signup-text">Log In!!</h3>
         <img src={Logo} alt="Goal Image" id="login-logo"/>
           <div className="form-group row">
               <label for="inputUsername" className="col-sm-2 col-form-label label" >Username</label>
@@ -72,6 +73,9 @@ export default class Login extends Component {
               <div className="col-sm-10 offset-sm-2">
                   <button type="submit" className="btn btn-primary">Sign in</button>
               </div>
+              <Link to="/signup">
+              <p id="not-a-member">Not a member? Sign Up here</p>
+              </Link>
           </div>
       </form>
       </div>

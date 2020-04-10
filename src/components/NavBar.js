@@ -16,6 +16,7 @@ const NavBar = (props) => {
       <Link to="https://www.worldsoccershop.com/shop/leagues/premier-league" className="nav-item">Shop Apparel</Link>
       <Link to="/profile/" className="nav-item">Your Profile</Link>
       <Link to="/about" className="nav-item">About</Link>
+      <Link to="/signup" className="nav-item">Sign Up</Link>
     </div>
   </div>
 </nav>

@@ -9,7 +9,7 @@ import {
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import TeamShow from "./components/TeamShow";
-// import Signup from "./containers/Signup";
+import Signup from "./containers/signup";
 import Login from "./containers/login";
 import About from "./components/About";
 import UserProfile from "./containers/UserProfile";
@@ -134,6 +134,7 @@ class App extends React.Component {
       <div>
         <Router>
           <NavBar currentUser={this.state.currentUser} />
+
           <div className="App">
             <Route
               exact
@@ -148,7 +149,7 @@ class App extends React.Component {
                 );
               }}
             />
-            
+
             <Route
               exact path="/about" component={About}
             />
@@ -204,6 +205,7 @@ class App extends React.Component {
               }}
             />
         </div>
+        <Route exact path='/signup' component={Signup}/>
         </Router>
       </div>
     );
