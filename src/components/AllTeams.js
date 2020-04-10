@@ -20,9 +20,9 @@ class AllTeams extends React.Component {
         </div>
         <div className="crest-container container">
           <div className="row">
+            <div className="col-lg">
             {this.props.teams.map(team => (
               <Link to={`/teams/${team.id}`}>
-                <div className="col-4">
                   <img
                     className="team-img"
                     key={team.id}
@@ -30,9 +30,9 @@ class AllTeams extends React.Component {
                     alt={team.shortName}
                     src={team.crestUrl}
                   />
-                </div>
               </Link>
             ))}
+          </div>
           </div>
         </div>
       </div>
