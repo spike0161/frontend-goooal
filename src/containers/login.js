@@ -30,7 +30,7 @@ export default class Login extends Component {
 
   loginHandler = e => {
     e.preventDefault();
-    fetch("http://localhost:3000/fakelogin", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,8 +42,14 @@ export default class Login extends Component {
       })
     })
       .then(res => res.json())
-      .then(user => {
+      .then(data => {
+        console.log(data)
+        if(data.successful){
+          let user = data.data
           this.props.updateCurrentUser(user)
+        } else{
+          alert(data.message)
+        }
       });
   };
 

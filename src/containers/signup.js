@@ -11,11 +11,16 @@ class Signup extends React.Component {
       name: "",
       userName: "",
       bio: "",
-      avatar: ""
+      avatar: "",
+      password: ""
     };
   }
 
   nameHandler = e => {
+    this.setState({ name: e.target.value });
+  };
+  
+  passwordHandler = e => {
     this.setState({ name: e.target.value });
   };
 
@@ -61,6 +66,19 @@ class Signup extends React.Component {
                   class="form-control"
                   id="username"
                   onChange={e => this.userNameHandler(e)}
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="password" className="col-sm-2 col-form-label label">
+                Password
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  onChange={e => this.passwordHandler(e)}
                 />
               </div>
             </div>

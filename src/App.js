@@ -71,7 +71,7 @@ class App extends React.Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        'Accept': "application/json"
       },
       body: JSON.stringify({
         name: name,
@@ -129,7 +129,6 @@ class App extends React.Component {
   };
 
   render() {
-    // console.log("In App", this.top5Table);
     return (
       <div>
         <Router>
